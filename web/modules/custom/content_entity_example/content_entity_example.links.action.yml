@@ -1,0 +1,6 @@
+content_entity_example.contact_add:
+  route_name: content_entity_example.contact_add
+  title: 'Add contact'
+  appears_on:
+    - entity.content_entity_example_contact.collection
+    - entity.content_entity_example_contact.canonical

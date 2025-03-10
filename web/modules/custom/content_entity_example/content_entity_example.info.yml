@@ -1,0 +1,8 @@
+name: 'Content Entity Example'
+type: module
+description: 'Demonstates how to create a content entity example'
+package: 'custom'
+core_version_requirement: ^10 || ^11
+dependencies: 
+  - drupal:options
+  - drupal:user
