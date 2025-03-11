@@ -1,0 +1,22 @@
+entity.generated_entity.settings:
+  title: 'Settings'
+  route_name: entity.generated_entity.settings
+  base_route: entity.generated_entity.settings
+entity.generated_entity.view:
+  title: 'View'
+  route_name: entity.generated_entity.canonical
+  base_route: entity.generated_entity.canonical
+entity.generated_entity.edit_form:
+  title: 'Edit'
+  route_name: entity.generated_entity.edit_form
+  base_route: entity.generated_entity.canonical
+entity.generated_entity.delete_form:
+  title: 'Delete'
+  route_name: entity.generated_entity.delete_form
+  base_route: entity.generated_entity.canonical
+  weight: 10
+entity.generated_entity.collection:
+  title: 'Generated entities'
+  route_name: entity.generated_entity.collection
+  base_route: system.admin_content
+  weight: 10

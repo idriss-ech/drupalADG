@@ -1,0 +1,7 @@
+entity.generated_entity.settings:
+  path: 'admin/structure/generated-entity'
+  defaults:
+    _form: '\Drupal\generated_entity\Form\GeneratedEntitySettingsForm'
+    _title: 'Generated entity'
+  requirements:
+    _permission: 'administer generated_entity'

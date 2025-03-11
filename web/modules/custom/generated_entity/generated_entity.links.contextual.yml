@@ -1,0 +1,10 @@
+entity.generated_entity.edit_form:
+  route_name: entity.generated_entity.edit_form
+  group: generated_entity
+  title: 'Edit'
+
+entity.generated_entity.delete_form:
+  route_name: entity.generated_entity.delete_form
+  group: generated_entity
+  title: 'Delete'
+  weight: 10

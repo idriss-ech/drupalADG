@@ -1,0 +1,11 @@
+entity.generated_entity.settings:
+  title: 'Generated entity'
+  description: 'Configure a Generated entity entity type.'
+  route_name:  entity.generated_entity.settings
+  parent: system.admin_structure
+
+entity.generated_entity.collection:
+  title: 'Generated entities'
+  description: 'List of generated entities.'
+  route_name: entity.generated_entity.collection
+  parent: system.admin_content

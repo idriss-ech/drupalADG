@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - generated_entity
+id: generated_entity_delete_action
+label: 'Delete generated entities'
+type: generated_entity
+plugin: entity:delete_action:generated_entity
+configuration: {  }

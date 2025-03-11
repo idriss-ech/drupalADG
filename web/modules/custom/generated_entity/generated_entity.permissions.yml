@@ -1,0 +1,3 @@
+administer generated_entity:
+  title: 'Administer generated entities'
+  restrict access: true

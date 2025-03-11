@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - generated_entity
+id: generated_entity_save_action
+label: 'Save generated entities'
+type: generated_entity
+plugin: entity:save_action:generated_entity
+configuration: {  }

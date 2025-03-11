@@ -1,0 +1,5 @@
+generated_entity.add_form:
+  title: 'Add generated entity'
+  route_name: entity.generated_entity.add_form
+  appears_on:
+    - entity.generated_entity.collection
