@@ -1,21 +1,27 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file
  * Provides a generated entity entity type.
  */
 
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Render\Element;
-
+use Drupal\Core\Field\BaseFieldDefinition;
 /**
  * Implements hook_theme().
  */
 function generated_entity_theme(): array {
   return [
     'generated_entity' => ['render element' => 'elements'],
-  ];
+    'user__full' => [
+        'render element' => 'elements',],
+    'user__teaser' => [
+        'render element' => 'elements',],
+
+        ];
+
 }
 
 /**
@@ -35,4 +41,85 @@ function template_preprocess_generated_entity(array &$variables): void {
     $variables['content'][$key] = $variables['elements'][$key];
   }
 }
+
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+// function generated_entity_entity_base_field_info(EntityTypeInterface $entity_type) {
+//   $fields = [];
+
+//   // Check if the entity type is a node.
+//   if ($entity_type->id() === 'node') {
+//     // Check for the "article" bundle (content type).
+//     $fields['featured'] = BaseFieldDefinition::create('boolean')
+//       ->setLabel(t('Featured'))
+//       ->setDescription(t('Mark this article as featured.'))
+//       ->setDefaultValue(false)
+//       ->setSetting('on_label', t('Yes'))
+//       ->setSetting('off_label', t('No'))
+//       ->setDisplayOptions('form', [
+//         'type' => 'boolean_checkbox',
+//         'weight' => 0,
+//       ])
+//       ->setDisplayOptions('view', [
+//         'type' => 'boolean',
+//         'label' => 'hidden',
+//         'weight' => 0,
+//       ])
+//       ->setDisplayConfigurable('form', TRUE)
+//       ->setDisplayConfigurable('view', TRUE)
+//       ->addConstraint('bundle', ['value' => 'article']); // Limit this field to articles only.
+//   }
+
+//   return $fields;
+// }
+
+
+/**
+ * Implements hook_update_N().
+ */
+function generated_entity_update_8001() {
+  // Define the schema for the new table.
+  $schema = [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary key: ID.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Name of the item.',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Timestamp of creation.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  // Create the table using Drupal's schema API.
+  \Drupal::database()->schema()->createTable('my_custom_table', $schema);
+
+  // Provide a human-readable message about what the update does.
+  return t('Added the new "my_custom_table" to the database.');
+}
+
+
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function generated_entity_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if ($hook === 'user' && isset($variables['elements']['#view_mode'])) {
+    $view_mode = $variables['elements']['#view_mode'];
+    $suggestions[] = 'user__' . $view_mode;
+  }
+}
+
 
